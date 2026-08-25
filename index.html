@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070d14">
+  <title>Rocket League | Easy to learn. Hard to master.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="style.css?v=replay-2">
+</head>
+<body>
+  <div class="stadium-noise" aria-hidden="true"></div>
+  <div class="broadcast-bar"><span class="brand">RLCS // FIELD NOTES</span><span id="sectionIndicator">01 / 09</span><span class="broadcast-mode">LIVE STUDY <b>●</b></span></div>
+  <main class="reveal" aria-label="Why is Rocket League harder to master than other competitive games?">
+    <div class="slides">
+      <!-- 01 / OPENING — approved pillar -->
+      <section class="slide slide-hero" data-section="01 / 09">
+        <img class="cover-image" src="assets/images/rl-arena.webp" alt="Rocket League arena">
+        <div class="hero-shade"></div><div class="speed-streaks" aria-hidden="true"></div>
+        <div class="content hero-content"><span class="overline">ROCKET LEAGUE // COMPETITIVE FIELD STUDY</span><h1><span class="hero-line">EASY TO LEARN.</span><strong class="hero-line">HARD TO MASTER.</strong></h1><p class="hero-question hero-line">Why is Rocket League harder to master than other competitive games?</p><div class="match-strip"><span>SEASON STUDY</span><i></i><span>THE GAME IS SIMPLE</span></div><div class="edu-note"><span class="add-label">A GAME OF SIMPLE RULES AND COMPLEX MASTERY</span><p class="add-text">Rocket League combines football with vehicle-based movement, creating a competitive game that is easy to understand but difficult to master.</p></div></div>
+      </section>
+
+      <!-- 02 / THE BASICS — the play, as a broadcast replay -->
+      <section class="slide slide-basics" data-section="02 / 09">
+        <img class="basics-bg" src="assets/images/rl-competitive.webp" alt="Rocket League gameplay">
+        <div class="basics-shade"></div>
+
+        <div class="play-scene" aria-hidden="true">
+          <svg class="pitch" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="pitchFill" x1=".5" y1="1" x2=".4" y2="0">
+                <stop offset="0" stop-color="#35d9ff" stop-opacity="0"/>
+                <stop offset="1" stop-color="#35d9ff" stop-opacity=".16"/>
+              </linearGradient>
+            </defs>
+            <path class="pitch-base" d="M8 100 L100 100 L100 8 L72 18 L44 28 Z"/>
+            <g class="pitch-stripes">
+              <path d="M18 100 L76 22"/><path d="M38 100 L82 20"/><path d="M58 100 L90 17"/><path d="M78 100 L100 13"/>
+            </g>
+            <path class="pitch-goalline" d="M72 18 L44 28"/>
+          </svg>
+
+          <svg class="play-path" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="shot-line hit-line" d="M25 75 C 33 70, 38 65, 43 59" pathLength="100"/>
+            <path class="shot-line score-line" d="M46 57 C 56 49, 63 38, 70 25" pathLength="100"/>
+          </svg>
+
+          <div class="scene-unit unit-car fragment car-in">
+            <svg class="car-svg" viewBox="0 0 320 160" aria-hidden="true">
+              <defs><linearGradient id="carBody" x1="0" y1=".2" x2="1" y2=".8"><stop stop-color="#59e7ff" stop-opacity=".46"/><stop offset=".52" stop-color="#14778c" stop-opacity=".32"/><stop offset="1" stop-color="#07131d" stop-opacity=".8"/></linearGradient><linearGradient id="boostFlame" x1="0" x2="1"><stop stop-color="#fff"/><stop offset=".3" stop-color="#35d9ff"/><stop offset="1" stop-color="#35d9ff" stop-opacity="0"/></linearGradient></defs>
+              <ellipse cx="172" cy="141" rx="120" ry="10" fill="rgba(0,0,0,.55)"/>
+              <path class="boost-flame" d="M72 102 C35 93 9 99 -14 116 C20 117 42 123 78 118 Z" fill="url(#boostFlame)"/>
+              <path class="boost-trace" d="M74 112 L6 126 M78 120 L27 137 M82 96 L34 89"/>
+              <path d="M64 93 L69 65 Q72 54 91 48 L150 31 L211 39 L247 60 L283 71 Q301 81 304 98 L296 113 L249 116 L241 103 L213 104 L205 121 L102 123 L95 107 L72 109 Z" fill="url(#carBody)" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+              <path d="M97 49 L149 31 L191 37 L213 58 L122 64 Z" fill="rgba(224,248,255,.23)" stroke="rgba(255,255,255,.58)" stroke-width="2"/>
+              <path d="M126 63 L216 58 L249 74 L196 82 L102 79 Z" fill="rgba(4,19,29,.52)" stroke="rgba(53,217,255,.48)" stroke-width="2"/>
+              <path d="M77 82 L113 87 L101 102 L72 101 Z M251 77 L282 85 L288 98 L249 99 Z" fill="rgba(255,255,255,.76)"/>
+              <path d="M76 92 L114 95 M203 94 L283 88" stroke="rgba(255,255,255,.34)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M68 116 L103 126 L200 127 L247 115" stroke="rgba(53,217,255,.92)" stroke-width="3" fill="none"/>
+              <path d="M78 56 L70 33 L117 27 L121 48 M77 39 L115 35" fill="rgba(7,19,29,.75)" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+              <circle cx="105" cy="120" r="20" fill="#08131d" stroke="currentColor" stroke-width="4"/><circle cx="105" cy="120" r="8" fill="currentColor"/><circle cx="105" cy="120" r="3" fill="#fff"/>
+              <circle cx="221" cy="118" r="20" fill="#08131d" stroke="currentColor" stroke-width="4"/><circle cx="221" cy="118" r="8" fill="currentColor"/><circle cx="221" cy="118" r="3" fill="#fff"/>
+              <path d="M169 86 L181 94 L166 102" fill="none" stroke="rgba(255,255,255,.68)" stroke-width="2"/>
+            </svg>
+            <span class="boost-readout">BOOST&nbsp; 100</span>
+            <b class="scene-word">CAR</b>
+            <em class="scene-sub">accelerate</em>
+          </div>
+
+          <div class="scene-unit unit-ball fragment ball-in">
+            <span class="hit-ring"></span>
+            <svg class="ball-svg" viewBox="0 0 80 80" aria-hidden="true">
+              <defs>
+                <radialGradient id="ballGrad" cx="35%" cy="28%" r="85%">
+                  <stop offset="0" stop-color="#ffffff"/>
+                  <stop offset=".62" stop-color="#eaf4ff"/>
+                  <stop offset="1" stop-color="#9fb4c8"/>
+                </radialGradient>
+              </defs>
+              <circle cx="40" cy="40" r="33" fill="url(#ballGrad)"/>
+              <g stroke="rgba(16,38,58,.3)" stroke-width="1.6" fill="none">
+                <path d="M40 15 L51 24 L46 37 L34 37 L29 24 Z"/>
+                <path d="M40 15 L40 7 M51 24 L70 26 M46 37 L63 53 M34 37 L17 53 M29 24 L10 26 M40 65 L40 73"/>
+              </g>
+              <ellipse cx="33" cy="25" rx="9" ry="4" fill="rgba(255,255,255,.9)"/>
+            </svg>
+            <b class="scene-word">BALL</b>
+            <em class="scene-sub">read the bounce</em>
+          </div>
+          <span class="contact-zone" aria-hidden="true"><i></i><b>CONTACT</b></span>
+
+          <div class="scene-unit unit-goal fragment goal-in">
+            <span class="goal-glow"></span>
+            <svg class="goal-svg" viewBox="0 0 220 150" aria-hidden="true">
+              <defs>
+                <linearGradient id="goalGlow" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0" stop-color="#ff8a00" stop-opacity=".38"/>
+                  <stop offset="1" stop-color="#ff8a00" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M24 140 L40 52 Q64 24 114 24 L178 24 Q196 24 196 40 L196 140 Z" fill="url(#goalGlow)"/>
+              <g stroke="rgba(53,217,255,.32)" stroke-width="1.4" fill="none">
+                <path d="M32 140 L48 84 L196 140 M44 96 L184 100 M58 66 L184 74 M76 44 L184 54 M114 24 L114 140 M156 24 L156 140"/>
+              </g>
+              <path d="M24 140 L40 52 Q64 24 114 24 L178 24 Q196 24 196 40 L196 140" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+              <path d="M96 140 L96 68 Q96 48 122 44 L168 42 Q184 44 184 56 L184 140" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+            <b class="scene-word">GOAL</b>
+            <em class="scene-sub">finish the play</em>
+          </div>
+
+          <span class="play-word stamp-hit">HIT</span>
+          <span class="play-word stamp-score">SCORE</span>
+        </div>
+        <div class="content basics-content">
+          <div class="section-intro"><span class="overline">02 // THE BASICS</span><h2>One play. Three ideas.</h2></div><div class="edu-note basics-edu"><span class="add-label">THE OBJECTIVE IS SIMPLE</span><p class="add-text">Players use rocket-powered cars to hit the ball, defend their goal, and score against the opposing team.</p></div>
+          <p class="big-statement fragment fade">Simple concept. <em>Complex execution.</em></p>
+        </div>
+        <div class="replay-tag" aria-hidden="true"><b>●</b> REPLAY // CORE LOOP</div>
+      </section>
+
+      <!-- 03 / THE SKILL — the road from kickoff to goal -->
+      <section class="slide slide-skill" data-section="03 / 09">
+        <img class="skill-bg" src="assets/images/rl-aerial.webp" alt="Rocket League aerial gameplay">
+        <div class="skill-shade"></div>
+        <div class="content skill-content">
+          <div class="section-intro"><span class="overline">03 // THE SKILL</span><h2>The rules stay short.<br><em>The skill curve doesn't.</em></h2></div>
+          <div class="edu-note"><span class="add-label">FROM BASIC CONTROL TO ADVANCED MECHANICS</span><p class="add-text">The basic controls can be learned quickly, but mastering movement, timing, aerial control, and ball manipulation requires continuous practice.</p></div>
+
+          <div class="skill-field" aria-hidden="true">
+            <svg class="arena" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="arenaFill" x1=".5" y1="1" x2=".4" y2="0">
+                  <stop offset="0" stop-color="#35d9ff" stop-opacity="0"/>
+                  <stop offset="1" stop-color="#35d9ff" stop-opacity=".15"/>
+                </linearGradient>
+              </defs>
+              <path class="arena-base" d="M4 100 L100 100 L100 10 L74 16 L50 24 Z"/>
+              <g class="arena-stripes">
+                <path d="M20 100 L82 15"/>
+                <path d="M40 100 L92 13"/>
+                <path d="M60 100 L100 11"/>
+              </g>
+              <path class="arena-goal" d="M62 28 Q66 6 78 4 L94 4 Q100 6 100 12 L100 28 Z"/>
+              <g class="arena-net">
+                <path d="M62 28 L100 28 M68 20 L100 20 M76 12 L100 12 M88 4 L100 4"/>
+              </g>
+              <path class="ball-path" d="M6 88 C 22 74, 30 68, 42 64 C 54 60, 58 50, 64 42 C 70 34, 73 32, 78 26" pathLength="100"/>
+              <circle class="training-runner" r="1.45" fill="#fff"><animateMotion dur="4.2s" repeatCount="indefinite" path="M6 88 C 22 74, 30 68, 42 64 C 54 60, 58 50, 64 42 C 70 34, 73 32, 78 26"/></circle>
+            </svg>
+
+            <span class="goal-flag">SCORE</span>
+
+            <div class="check ch-1 fragment rise"><b><span>01</span></b><span class="check-info"><i>DRIVE</i><small>move with intent</small></span></div>
+            <div class="check ch-2 fragment rise"><b><span>02</span></b><span class="check-info"><i>HIT THE BALL</i><small>read the bounce</small></span></div>
+            <div class="check ch-3 fragment rise"><b><span>03</span></b><span class="check-info"><i>BALL CONTROL</i><small>shape the play</small></span></div>
+            <div class="check ch-4 fragment rise"><b><span>04</span></b><span class="check-info"><i>AERIAL CONTROL</i><small>own the air</small></span></div>
+            <div class="check ch-5 fragment rise"><b><span>05</span></b><span class="check-info"><i>ADVANCED MECHANICS</i><small>create options</small></span></div>
+            <div class="check ch-6 fragment rise"><b><span>06</span></b><span class="check-info"><i>CONSISTENCY</i><small>repeat under pressure</small></span></div>
+          </div>
+
+          <div class="skill-footer"><span>LOW INPUT COUNT</span><span class="meter"><b></b></span><strong>HIGH EXECUTION DEMAND</strong></div>
+        </div>
+      </section>
+
+      <!-- 04 / VERSUS — broadcast matchup -->
+      <section class="slide slide-versus" data-section="04 / 09">
+        <div class="content versus-content">
+          <div class="section-intro"><span class="overline">04 // TWO WAYS TO PLAY FOOTBALL</span><h2>Two ways to play<br><em>the same game.</em></h2></div><p class="versus-lede">Both games are based on football, but they create very different gameplay experiences. <em>The difference is not the objective, but how the player achieves it.</em></p>
+          <div class="versus-stage">
+            <article class="play-feed fc-feed"><img src="assets/images/ea-fc26-gameplay.jpg" alt="EA SPORTS FC 26 gameplay"><div class="feed-shade"></div><span class="feed-kicker">TRADITIONAL FOOTBALL // TACTICS</span><div class="feed-copy"><h3>PLAYER<br><b>POSITIONING</b></h3><ul><li>Player control</li><li>Team management</li><li>Traditional football movement</li></ul><div class="frame-note"><b>PLAYERS & TEAM MANAGEMENT</b><span>Players control footballers and use traditional formations, tactics, and team strategies.</span></div></div></article>
+            <div class="shared-play" aria-hidden="true"><span class="shared-ball"></span><b>THE SAME<br>BALL</b><i>THE SAME GOAL</i></div>
+            <article class="play-feed rocket-feed"><img src="assets/images/rl-competitive.webp" alt="Rocket League competitive gameplay"><div class="feed-shade"></div><span class="feed-kicker">ROCKET LEAGUE // PHYSICS</span><div class="feed-copy"><h3>CAR<br><b>CONTROL</b></h3><ul><li>Aerial mechanics</li><li>Timing</li><li>Mechanical precision</li></ul><div class="frame-note"><b>PHYSICS & VEHICLE CONTROL</b><span>Players directly control a car and interact with the ball in real time.</span></div></div></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 / RANKED — climbing the season ladder -->
+      <section class="slide slide-ranked" data-section="05 / 09">
+        <img class="ranked-bg" src="assets/images/rl-arena.webp" alt="Rocket League arena">
+        <div class="ranked-shade"></div>
+        <div class="content ranked-content">
+          <div class="ranked-copy"><span class="overline">05 // THE RANKED GRIND</span><h2>Now the<br><em>competition</em><br>starts.</h2><p>Every win moves the camera higher.</p><div class="rank-readout"><span>RANK</span><strong id="rankNumber">01</strong><small>/ 08</small></div><div class="edu-note ranked-edu"><span class="add-label">A COMPETITIVE PROGRESSION SYSTEM</span><p class="add-text">Ranked matches place players against opponents of similar skill levels, creating a progression system based on competitive performance.</p><span class="climb-strip">WIN <i>→</i> IMPROVE <i>→</i> CLIMB</span></div></div>
+          <div class="rank-climb" id="rankTower">
+            <div class="climb-road"></div>
+            <div class="rank-level active" data-rank="0"><img src="assets/ranks/bronze.jpg" alt="Bronze emblem"><span>BRONZE</span><i>01</i></div>
+            <div class="rank-level" data-rank="1"><img src="assets/ranks/silver.jpg" alt="Silver emblem"><span>SILVER</span><i>02</i></div>
+            <div class="rank-level" data-rank="2"><img src="assets/ranks/gold.jpg" alt="Gold emblem"><span>GOLD</span><i>03</i></div>
+            <div class="rank-level" data-rank="3"><img src="assets/ranks/platinum.jpg" alt="Platinum emblem"><span>PLATINUM</span><i>04</i></div>
+            <div class="rank-level" data-rank="4"><img src="assets/ranks/diamond.jpg" alt="Diamond emblem"><span>DIAMOND</span><i>05</i></div>
+            <div class="rank-level" data-rank="5"><img src="assets/ranks/champion.jpg" alt="Champion emblem"><span>CHAMPION</span><i>06</i></div>
+            <div class="rank-level" data-rank="6"><img src="assets/ranks/grand-champion.jpg" alt="Grand Champion emblem"><span>GRAND CHAMPION</span><i>07</i></div>
+            <div class="rank-level" data-rank="7"><img src="assets/ranks/supersonic-legend.jpg" alt="Supersonic Legend emblem"><span>SUPERSONIC LEGEND</span><i>08</i></div>
+          </div>
+          <div class="rank-prompt"><span class="pulse-dot"></span> PRESS → TO ASCEND</div>
+        </div>
+      </section>
+
+      <!-- 06 / THE NUMBERS — approved pillar -->
+      <section class="slide slide-numbers" data-section="06 / 09">
+        <div class="content numbers-content"><div class="section-intro numbers-heading"><div><span class="overline">06 // THE NUMBERS</span><h2>Where do players<br><em>actually rank?</em></h2><p>Season 22 • Ranked Standard 3v3</p></div><span class="season-tag">FINAL DISTRIBUTION<br><b>JUNE 10, 2026</b></span></div><p class="chart-lede"><b>WHAT THE DISTRIBUTION SHOWS</b> Most players are concentrated in the lower and middle ranks, while the highest ranks represent a much smaller portion of the player population.</p><div class="distribution-chart" role="img" aria-label="Rocket League Season 22 Ranked Standard 3v3 distribution"><div class="data-row" data-value="3.43"><span class="rank-id"><img src="assets/ranks/bronze.jpg" alt="">BRONZE</span><div class="data-track"><i></i></div><b>3.43%</b></div><div class="data-row" data-value="19.34"><span class="rank-id"><img src="assets/ranks/silver.jpg" alt="">SILVER</span><div class="data-track"><i></i></div><b>19.34%</b></div><div class="data-row focus" data-value="38.08"><span class="rank-id"><img src="assets/ranks/gold.jpg" alt="">GOLD</span><div class="data-track"><i></i></div><b>38.08%</b></div><div class="data-row focus" data-value="23.63"><span class="rank-id"><img src="assets/ranks/platinum.jpg" alt="">PLATINUM</span><div class="data-track"><i></i></div><b>23.63%</b></div><div class="data-row focus" data-value="12.07"><span class="rank-id"><img src="assets/ranks/diamond.jpg" alt="">DIAMOND</span><div class="data-track"><i></i></div><b>12.07%</b></div><div class="data-row focus" data-value="3.21"><span class="rank-id"><img src="assets/ranks/champion.jpg" alt="">CHAMPION</span><div class="data-track"><i></i></div><b>3.21%</b></div><div class="data-row elite" data-value="0.23"><span class="rank-id"><img src="assets/ranks/grand-champion.jpg" alt="">GRAND CHAMPION</span><div class="data-track"><i></i></div><b>0.23%</b></div><div class="data-row elite ssl" data-value="0.001"><span class="rank-id"><img src="assets/ranks/supersonic-legend.jpg" alt="">SSL</span><div class="data-track"><i></i></div><b><0.01%</b></div></div><div class="numbers-footer"><p>The higher you climb, <em>the fewer players remain.</em></p><small>Source: Psyonix / Rocket League Season 22 rank distribution, Standard 3v3, June 2026.</small></div></div>
+      </section>
+
+      <!-- 07 / THE GRIND — gameplay replay / training analysis -->
+      <section class="slide slide-grind" data-section="07 / 09">
+        <img class="grind-image" src="assets/images/rl-aerial.webp" alt="Rocket League aerial gameplay">
+        <div class="grind-shade"></div>
+        <div class="content grind-content">
+          <div class="grind-head">
+            <div class="grind-heading"><span class="overline">07 // THE GRIND</span><h2>There is always<br><em>another skill</em><br>to master.</h2></div>
+            <span class="replay-hint"><b>●</b> REPLAY // SKILL <span id="skillIndex">01</span> / 07</span>
+          </div>
+          <div class="replay-stage">
+            <div class="video-frame" id="videoFrame">
+              <video class="skill-video" id="skillVideo" muted loop playsinline preload="metadata"></video>
+              <div class="video-placeholder">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M27 21 L44 32 L27 43 Z" fill="currentColor"/></svg>
+                <b>GAMEPLAY FOOTAGE</b>
+                <small>AWAITING CLIP</small>
+              </div>
+              <div class="video-vignette" aria-hidden="true"></div>
+              <div class="video-sweep" aria-hidden="true"></div>
+            </div>
+            <div class="skill-info">
+              <span class="skill-tag" id="skillTag">SKILL 01</span>
+              <h3 class="skill-title" id="skillTitle">DRIVE</h3>
+              <div class="skill-rule" aria-hidden="true"></div>
+              <p class="skill-desc" id="skillDesc">Master the basic movement and learn how to control your car around the field.</p>
+              <p class="path-strip">BASIC CONTROL → HIGH-LEVEL EXECUTION</p>
+              <div class="edu-note"><span class="add-label">SKILL DEVELOPMENT TAKES TIME</span><p class="add-text">Reaching higher ranks requires more than knowing the controls. Players must develop consistency, positioning, decision-making, and mechanical execution.</p><span class="practice-line">PRACTICE TURNS MECHANICS INTO CONSISTENCY.</span></div>
+            </div>
+          </div>
+          <div class="skill-rail" aria-hidden="true">
+            <div class="rail-stops">
+              <div class="rail-line"></div>
+              <div class="rail-fill" id="railFill"></div>
+              <div class="rail-stop" data-skill="0"><span class="rail-dot"></span><i>01</i><em>DRIVE</em></div>
+              <div class="rail-stop" data-skill="1"><span class="rail-dot"></span><i>02</i><em>HIT THE BALL</em></div>
+              <div class="rail-stop" data-skill="2"><span class="rail-dot"></span><i>03</i><em>BALL CONTROL</em></div>
+              <div class="rail-stop" data-skill="3"><span class="rail-dot"></span><i>04</i><em>AERIAL CONTROL</em></div>
+              <div class="rail-stop" data-skill="4"><span class="rail-dot"></span><i>05</i><em>ADVANCED MECHANICS</em></div>
+              <div class="rail-stop" data-skill="5"><span class="rail-dot"></span><i>06</i><em>CONSISTENCY</em></div>
+              <div class="rail-stop final-stop" data-skill="6"><span class="rail-dot"></span><i>07</i><em>SUPERSONIC LEGEND</em></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 / RANK UP — dramatic promotion sequence -->
+      <section class="slide slide-rankup" data-section="08 / 09">
+        <div class="rankup-backdrop"></div>
+        <div class="rankup-flash"></div>
+        <div class="rankup-ring" aria-hidden="true"></div>
+        <div class="rankup-burst" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i></div>
+        <div class="content rankup-content">
+          <div class="match-hud"><span>COMPETITIVE // MATCH COMPLETE</span><span>PROMOTION MATCH</span></div>
+          <div class="rankup-kicker">MATCH COMPLETE</div>
+          <div class="rankup-stage">
+            <div class="old-rank">
+              <img src="assets/ranks/diamond.jpg" alt="Diamond emblem">
+              <span>DIAMOND III</span>
+              <small>DIVISION IV</small>
+            </div>
+            <div class="new-rank">
+              <img src="assets/ranks/champion.jpg" alt="Champion emblem">
+              <small>NEW RANK</small>
+              <span>CHAMPION I</span>
+            </div>
+          </div>
+          <div class="rankup-word">RANK <strong>UP!</strong></div>
+          <div class="rankup-line"><i></i> PROMOTION CONFIRMED <i></i></div>
+        </div>
+      </section>
+
+      <!-- 09 / FINAL — end of the journey -->
+      <section class="slide slide-final" data-section="09 / 09">
+        <img class="cover-image" src="assets/images/rl-arena.webp" alt="Rocket League arena"><div class="final-shade"></div><div class="content final-content"><span class="overline">09 // THE FINAL PLAY</span><h2><span>EASY TO LEARN.</span><strong>HARD TO MASTER.</strong></h2><p>That is what makes Rocket League so competitive.</p><div class="edu-note final-edu"><span class="add-label">WHY IS IT SO HARD TO MASTER?</span><p class="add-text">Rocket League has a simple objective, but its physics, movement, and competitive depth create a large gap between learning the game and mastering it.</p></div><div class="final-score"><span>FULL TIME</span><b>GG</b><span>END OF STUDY</span></div></div>
+      </section>
+    </div>
+  </main>
+  <div class="progress-track"><span></span></div><script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script><script src="assets/lucide.min.js"></script><script src="script.js?v=replay-3"></script>
+</body>
+</html>

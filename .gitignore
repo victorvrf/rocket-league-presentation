@@ -1,0 +1,16 @@
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Python tooling (test-only, not part of the presentation)
+__pycache__/
+*.pyc
+
+# Logs
+*.log
