@@ -1,0 +1,4 @@
+Coloque aqui os seus clipes de gameplay (MP4).
+Os nomes esperados estao em HOW_TO_ADD_GAMEPLAY_VIDEOS.md (na pasta de cima)
+e no arquivo videos-config.js.
+Exemplo: speed-flip.mp4, air-dribble.mp4, ceiling-shot.mp4 ...

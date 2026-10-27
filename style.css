@@ -1,0 +1,270 @@
+/* ==========================================================================
+   ROCKET LEAGUE MECHANICS — "THE MECHANICS LAB"
+   Art direction: slow-motion replay breakdown on graphite.
+   Palette: graphite / acid lime / ultraviolet / white (coral only for "miss").
+   Everything is local: fonts and Reveal.js live in /vendor.
+   ========================================================================== */
+
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-display:swap;src:url(vendor/fonts/barlow-condensed-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-weight:700;font-display:swap;src:url(vendor/fonts/barlow-condensed-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-weight:800;font-display:swap;src:url(vendor/fonts/barlow-condensed-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-weight:900;font-display:swap;src:url(vendor/fonts/barlow-condensed-latin-900-normal.woff2) format("woff2")}
+@font-face{font-family:"Space Mono";font-weight:400;font-display:swap;src:url(vendor/fonts/space-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Space Mono";font-weight:700;font-display:swap;src:url(vendor/fonts/space-mono-latin-700-normal.woff2) format("woff2")}
+
+:root{
+  --bg:#0a0c0f;
+  --bg2:#12161b;
+  --ink:#f4f6f8;
+  --dim:#b3bcc7;
+  --mute:#6d7885;
+  --line:rgba(244,246,248,.16);
+  --lime:#c8ff2e;
+  --violet:#a58bff;
+  --coral:#ff6f5e;
+  --display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --mono:"Space Mono",ui-monospace,Consolas,monospace;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--display);overflow:hidden}
+
+/* ---------- Reveal base ---------- */
+.reveal{font-family:var(--display);color:var(--ink);background:var(--bg)}
+.reveal .slides{text-align:left}
+.reveal .slides section{position:absolute;inset:0;width:100%;height:100%;padding:0;overflow:hidden;color:var(--ink)}
+.reveal .slides section::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:120px 120px;background-position:-1px -1px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 55%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse at 50% 55%,#000 25%,transparent 78%);
+}
+.reveal .slides section>*{z-index:1}
+
+h1,h2,h3,p{margin:0;font-weight:900}
+.abs{position:absolute}
+.stage{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+
+/* ---------- Typography ---------- */
+.kicker{font:700 28px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--lime)}
+.kicker i{font-style:normal;color:var(--dim)}
+.t{font:900 118px/.86 var(--display);text-transform:uppercase;letter-spacing:.005em;color:var(--ink)}
+.t em,.hl{font-style:normal;color:var(--lime)}
+.t .v,.vio{color:var(--violet)}
+.mono{font:400 28px/1.35 var(--mono);color:var(--dim)}
+.mono b{color:var(--ink);font-weight:700}
+.cap{font:700 25px/1.3 var(--mono);color:var(--dim);letter-spacing:.04em}
+.name{font:900 84px/.9 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.why{font:400 27px/1.35 var(--mono);color:var(--dim)}
+
+/* ---------- Broadcast chrome (outside the scaled deck) ---------- */
+.chrome{position:fixed;left:0;right:0;z-index:40;pointer-events:none;font-family:var(--mono);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.chrome-top{top:max(1.6vh,10px);display:flex;justify-content:space-between;align-items:center;padding:0 3vw;font-size:clamp(10px,.82vw,16px)}
+.brand{display:flex;align-items:center;gap:.8em;color:var(--ink)}
+.brand::before{content:"";width:.9em;height:.9em;background:var(--lime);transform:rotate(45deg)}
+.chrome-top .where b{color:var(--lime);font-weight:700}
+.scrub{position:fixed;left:3vw;right:max(9vw,120px);bottom:max(2.4vh,14px);height:34px;z-index:40}
+.scrub-line{position:absolute;left:0;right:0;top:9px;height:2px;background:rgba(255,255,255,.2)}
+.scrub-fill{position:absolute;left:0;top:9px;height:2px;width:0;background:var(--lime);box-shadow:0 0 12px rgba(200,255,46,.6);transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.tick{position:absolute;top:0;width:44px;height:34px;margin-left:-22px;padding:0;border:0;background:none;color:var(--mute);font:700 clamp(11px,.85vw,16px) var(--mono);letter-spacing:.08em;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px}
+.tick::before{content:"";width:2px;height:20px;margin-top:-1px;background:rgba(255,255,255,.35);transition:background .3s,height .3s}
+.tick{padding-top:0}
+.tick span{line-height:1}
+.tick:hover,.tick.on{color:var(--ink)}
+.tick.on::before{background:var(--lime);height:24px}
+.tick:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:3px}
+.playhead{position:absolute;top:3px;left:0;width:14px;height:14px;margin-left:-7px;background:var(--lime);transform:rotate(45deg);box-shadow:0 0 14px var(--lime);transition:left .7s cubic-bezier(.2,.8,.2,1)}
+
+/* Reveal arrows, restyled */
+.reveal .controls{color:var(--lime);right:max(1.2vw,10px);bottom:max(1.4vh,8px);width:100px;height:100px}
+.reveal .controls button{opacity:.85}
+.reveal .controls button:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+.reveal .controls .navigate-left,.reveal .controls .navigate-right{}
+
+/* ---------- Motion rules ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes ping{0%{opacity:.95;transform:scale(.55)}100%{opacity:0;transform:scale(1.7)}}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+.reveal .present [data-a]{animation:rise .85s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+.reveal .present svg [data-a],.reveal .present svg[data-a]{animation:fade .8s ease var(--d,0s) both}
+.reveal .present [data-w]{animation:wipe 1s cubic-bezier(.3,.1,.2,1) var(--d,0s) both}
+.draw{stroke-dasharray:1;stroke-dashoffset:1}
+.reveal .present .draw{animation:draw var(--t,1.4s) cubic-bezier(.45,.1,.2,1) var(--d,0s) both}
+.ping{transform-box:fill-box;transform-origin:center;opacity:0}
+.reveal .present .ping{animation:ping 1.5s ease-out var(--d,0s) 2 both}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal .present [data-a],.reveal .present svg [data-a],.reveal .present [data-w],.reveal .present .draw,.reveal .present .ping{animation:none!important}
+  .draw{stroke-dashoffset:0}
+  .ping{opacity:0}
+  .scrub-fill,.playhead{transition:none}
+}
+
+/* ---------- Shared SVG vocabulary ---------- */
+svg text{font-family:var(--mono);font-weight:700;letter-spacing:.06em}
+.trail{fill:none;stroke:var(--lime);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 10px rgba(200,255,46,.55))}
+.trail.vio{stroke:var(--violet);filter:drop-shadow(0 0 10px rgba(165,139,255,.55))}
+.trail.thin{stroke-width:4}
+.trail.coral{stroke:var(--coral);filter:drop-shadow(0 0 8px rgba(255,111,94,.5))}
+.guide{fill:none;stroke:rgba(244,246,248,.4);stroke-width:2.5;stroke-dasharray:3 11;stroke-linecap:round}
+.guide.lime{stroke:rgba(200,255,46,.6)}
+.surface{stroke:rgba(244,246,248,.55);stroke-width:5;stroke-linecap:round;fill:none}
+.hatch{stroke:rgba(244,246,248,.22);stroke-width:3;fill:none}
+.lbl{font-size:22px;fill:var(--dim)}
+.lbl.w{fill:var(--ink)}
+.lbl.l{fill:var(--lime)}
+.lbl.v{fill:var(--violet)}
+.lbl.c{fill:var(--coral)}
+.lbl.big{font-size:30px}
+.ballglow{filter:drop-shadow(0 0 14px rgba(244,246,248,.45))}
+.carglow{filter:drop-shadow(0 4px 14px rgba(0,0,0,.6))}
+.burst{stroke:var(--lime);stroke-width:5;stroke-linecap:round;fill:none}
+
+/* ==========================================================================
+   SLIDE 1 — OPENING: the trajectory IS the title
+   ========================================================================== */
+.s1 .hero{position:absolute;left:110px;top:118px}
+.s1 .hero h1{font:900 214px/.8 var(--display);text-transform:uppercase;letter-spacing:.004em;color:var(--ink)}
+.s1 .hero h1 span{display:block}
+.s1 .hero h1 .o{color:transparent;-webkit-text-stroke:3px var(--ink)}
+.s1 .subtitle{position:absolute;left:110px;top:566px;font:900 96px/.9 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.s1 .subtitle .basic{color:var(--ink)}
+.s1 .subtitle .to{color:var(--mute)}
+.s1 .subtitle .insane{color:var(--lime)}
+.s1 .support{position:absolute;left:110px;top:690px;width:760px;font:400 32px/1.35 var(--mono);color:var(--dim)}
+.s1 .support b{color:var(--ink)}
+
+/* ==========================================================================
+   SLIDE 2 — WHAT IS A MECHANIC: input -> movement -> contact -> play
+   ========================================================================== */
+.s2 .col{position:absolute;top:262px;width:330px}
+.s2 .col .n{font:700 26px/1 var(--mono);color:var(--lime);letter-spacing:.2em}
+.s2 .col h3{margin-top:10px;font:900 74px/.9 var(--display);text-transform:uppercase}
+.s2 .col .dg{height:320px;margin-top:22px;position:relative}
+.s2 .col .cap{margin-top:14px;font-size:24px;line-height:1.35}
+.s2 .keys{display:flex;flex-direction:column;gap:12px;padding-top:8px}
+.s2 .key{display:flex;align-items:center;gap:16px;height:54px;padding:0 18px;border:2px solid rgba(244,246,248,.28);border-radius:10px;font:700 26px/1 var(--mono);letter-spacing:.12em;color:var(--ink)}
+.s2 .key::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+.s2 .phrase{position:absolute;left:110px;right:110px;top:872px;font:900 72px/.9 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.s2 .phrase em{font-style:normal;color:var(--lime)}
+.s2 .phrase .q{color:var(--mute)}
+
+/* ==========================================================================
+   SLIDE 3 — MOVEMENT: three replay lanes
+   ========================================================================== */
+.s3 .lane-label{position:absolute;left:110px;width:470px}
+.s3 .lane-label .n{font:700 24px/1 var(--mono);letter-spacing:.2em;color:var(--lime)}
+.s3 .lane-label .name{margin-top:8px;font-size:78px}
+.s3 .lane-label .why{margin-top:12px;font-size:25px}
+
+/* ==========================================================================
+   SLIDE 4 — BALL CONTROL: two arena cross-sections
+   ========================================================================== */
+.s4 .side{position:absolute;left:1390px;width:420px}
+.s4 .side .name{font-size:76px}
+.s4 .side .why{margin-top:12px;font-size:26px}
+.s4 .side .tag{display:inline-block;margin-bottom:12px;font:700 22px/1 var(--mono);letter-spacing:.2em;padding:8px 12px;border:2px solid currentColor;border-radius:6px}
+
+/* ==========================================================================
+   SLIDE 5 — POWER & CONTACT: collision analysis
+   ========================================================================== */
+.s5 .pname{position:absolute;top:132px;font:900 112px/.88 var(--display);text-transform:uppercase}
+.s5 .pcap{position:absolute;top:900px;width:780px;font:400 26px/1.35 var(--mono);color:var(--dim)}
+.s5 .divider{position:absolute;left:960px;top:150px;width:2px;height:760px;background:linear-gradient(transparent,rgba(244,246,248,.3),transparent)}
+
+/* ==========================================================================
+   SLIDE 6 — ADVANCED: annotated frame grids
+   ========================================================================== */
+.s6 .pname{position:absolute;top:128px;font:900 84px/.9 var(--display);text-transform:uppercase}
+.s6 .psub{position:absolute;top:222px;width:800px;font:400 23px/1.35 var(--mono);color:var(--dim)}
+.s6 .combo{position:absolute;left:110px;right:110px;top:872px;height:98px;display:flex;align-items:center;gap:26px;border-top:2px solid var(--line)}
+.s6 .combo .name{font-size:54px}
+.s6 .chip{padding:10px 18px;border:2px solid rgba(244,246,248,.35);border-radius:10px;font:700 26px/1 var(--mono);letter-spacing:.1em;color:var(--ink)}
+.s6 .chip.a{border-color:var(--lime);color:var(--lime)}
+.s6 .chip.b{border-color:var(--violet);color:var(--violet)}
+.s6 .arr{font:700 34px/1 var(--mono);color:var(--mute)}
+.s6 .combo .cap{margin-left:auto;font-size:22px;max-width:520px;text-align:right;white-space:nowrap}
+
+/* ==========================================================================
+   SLIDE 7 — PRECISION: timing windows and contact
+   ========================================================================== */
+.s7 .t{position:absolute;left:110px;top:150px;font-size:112px}
+.s7 .w3{position:absolute;left:1170px;top:154px;width:640px}
+.s7 .w3 div{display:flex;gap:22px;align-items:baseline;padding:11px 0;border-bottom:2px solid var(--line)}
+.s7 .w3 b{width:150px;font:900 52px/1 var(--display);color:var(--lime);letter-spacing:.02em}
+.s7 .w3 span{font:400 26px/1.25 var(--mono);color:var(--dim)}
+
+/* ==========================================================================
+   SLIDE 8 — FINAL: five inputs fan out into every mechanic
+   ========================================================================== */
+.s8 .t{position:absolute;left:110px;top:122px;font-size:176px;line-height:.82}
+.s8 .pill{position:absolute;left:110px;width:290px;height:54px;display:flex;align-items:center;gap:16px;padding:0 18px;border:2px solid rgba(244,246,248,.28);border-radius:10px;font:700 26px/1 var(--mono);letter-spacing:.12em;color:var(--ink)}
+.s8 .pill::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+.s8 .out{position:absolute;left:1522px;font:900 40px/1 var(--display);text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+.s8 .recap{position:absolute;left:110px;top:944px;font:400 26px/1.3 var(--mono);color:var(--dim)}
+.s8 .recap b{color:var(--ink)}
+
+/* ---------- Smaller windows: keep chrome legible, deck scales itself ---------- */
+@media (max-width:900px){
+  .scrub{right:90px}
+  .tick span{display:none}
+}
+
+/* ==========================================================================
+   REPLAY DE GAMEPLAY (so aparece se existir um video em assets/videos/)
+   O replay "abre" como um portal circular a partir da bola do diagrama.
+   ========================================================================== */
+.clip-hint{color:var(--lime);font-weight:700}
+@keyframes cuein{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+@keyframes cuepulse{0%{box-shadow:0 0 18px rgba(200,255,46,.45),0 0 0 0 rgba(200,255,46,.5)}100%{box-shadow:0 0 18px rgba(200,255,46,.45),0 0 0 46px rgba(200,255,46,0)}}
+.portal-cue{position:absolute;left:calc(var(--px) - 64px);top:calc(var(--py) - 64px);width:128px;height:128px;border-radius:50%;
+  border:3px solid var(--lime);opacity:0;pointer-events:none;z-index:25}
+.portal-cue.on{animation:cuein .5s cubic-bezier(.2,.8,.2,1) forwards,cuepulse 1.8s ease-out .6s 3}
+.portal-cue span{position:absolute;left:50%;top:100%;margin-top:12px;transform:translateX(-50%);white-space:nowrap;
+  font:700 22px/1 var(--mono);letter-spacing:.2em;color:var(--lime);text-shadow:0 2px 10px #000}
+
+.replay{--px:960px;--py:540px;position:absolute;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;
+  background:rgba(10,12,15,.97);visibility:hidden;clip-path:circle(0px at var(--px) var(--py));
+  transition:clip-path .6s cubic-bezier(.65,0,.35,1),visibility 0s linear .6s}
+.replay.on{visibility:visible;clip-path:circle(2400px at var(--px) var(--py));transition:clip-path .85s cubic-bezier(.2,.7,.2,1)}
+.replay.instant,.replay.instant *{transition:none!important}
+.replay-bar,.replay-frame,.replay-note{opacity:0;transition:opacity .2s ease}
+.replay.on .replay-bar,.replay.on .replay-frame,.replay.on .replay-note{opacity:1;transition:opacity .45s ease .4s}
+.replay-bar{width:1380px;display:flex;align-items:center;gap:18px;font:700 26px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase}
+.replay-dot{width:16px;height:16px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+.replay.on .replay-dot{animation:replay-dot-blink 1.2s ease-in-out infinite}
+@keyframes replay-dot-blink{0%,100%{opacity:1;box-shadow:0 0 12px var(--lime),0 0 0 0 rgba(200,255,46,.4)}50%{opacity:.55;box-shadow:0 0 12px var(--lime),0 0 0 14px rgba(200,255,46,.35)}}
+.replay-tag{color:var(--lime)}
+.replay-title{font:900 54px/1 var(--display);letter-spacing:.02em;color:var(--ink)}
+.replay-count{margin-left:auto;color:var(--dim)}
+.replay-frame{position:relative;width:1380px;height:776px;background:#000;border:2px solid rgba(244,246,248,.22);border-radius:14px;overflow:hidden}
+.replay-frame.swap{animation:swapin .4s ease}
+@keyframes swapin{from{opacity:.15}to{opacity:1}}
+.replay-frame::before,.replay-frame::after{content:"";position:absolute;width:44px;height:44px;border:4px solid var(--lime);z-index:2;pointer-events:none}
+.replay-frame::before{left:12px;top:12px;border-right:0;border-bottom:0}
+.replay-frame::after{right:12px;bottom:12px;border-left:0;border-top:0}
+.replay-frame video{width:100%;height:100%;object-fit:contain;display:block;background:#000}
+.replay-note{width:1380px;margin:0;min-height:34px;font:400 27px/1.3 var(--mono);color:var(--dim)}
+
+/* rotulos dentro do video (cues) e selo de camera lenta */
+.replay-cue{position:absolute;left:40px;top:40px;z-index:3;max-width:900px;padding:14px 22px;border:3px solid var(--lime);border-radius:10px;
+  background:rgba(10,12,15,.82);font:700 34px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--lime);
+  opacity:0;transform:translateY(16px);pointer-events:none}
+.replay-cue.on{animation:cueshow .4s cubic-bezier(.2,.8,.2,1) forwards}
+.replay-cue.out{animation:cueout .4s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes cueshow{to{opacity:1;transform:none}}
+@keyframes cueout{to{opacity:0;transform:translateY(-16px)}}
+.replay-slow{position:absolute;right:40px;top:40px;z-index:3;padding:10px 16px;border-radius:8px;background:var(--violet);color:#0a0c0f;
+  font:700 24px/1 var(--mono);letter-spacing:.2em;opacity:0;pointer-events:none;transition:opacity .2s}
+.replay-slow.on{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .replay,.replay.on{transition:none;clip-path:none}
+  .replay:not(.on){visibility:hidden}
+  .replay-bar,.replay-frame,.replay-note,.replay.on .replay-bar,.replay.on .replay-frame,.replay.on .replay-note{transition:none}
+  .portal-cue.on{animation:cuein .01s forwards}
+  .replay-cue.on{animation:cueshow .01s forwards}
+  .replay.on .replay-dot{animation:none}
+}

@@ -1,0 +1,12 @@
+# Local diagnostics and archived design reference (not part of the published site)
+diagnostic.html
+diagnostico.html
+legacy-reference/
+
+# Editor and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
