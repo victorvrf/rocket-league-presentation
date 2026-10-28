@@ -80,6 +80,7 @@ window.RL_VIDEOS = {
     { slide: 6, file: 'flip-reset.mp4',   title: 'Flip reset',   note: 'Three or more wheels on the ball give the flip back.', from: [300, 682],
       cues: [{ t: 1.0, text: '1. FLIP RESET', hold: 2 }] },
     { slide: 6, file: 'musty-flick.mp4',  title: 'Musty flick',  note: 'Nose past 90 degrees, then flip.', from: [1768, 650],
-      cues: [{ t: 0.5, text: '1. MUSTY FLICK', hold: 2 }] }
+      cues: [{ t: 0.5, text: '1. MUSTY FLICK', hold: 2 }],
+      slow: { at: 2.05, to: 0.35, hold: 1.0 } }
   ]
 };
