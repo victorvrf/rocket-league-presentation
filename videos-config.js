@@ -39,10 +39,9 @@ window.RL_VIDEOS = {
      true: a seta direita tambem abre o replay (util se voce usa controle remoto/clicker). */
   arrowOpens: false,
 
-  /* 'folder' (padrao): le a lista de arquivos da pasta. Nao gera erros no console.
-     'try': tenta abrir cada arquivo (use SO se 'folder' nao funcionar no seu servidor;
-            pode aparecer aviso 404 no console, mas e inofensivo). */
-  detect: 'folder',
+  /* 'try': verifica cada arquivo configurado individualmente. Necessario no GitHub Pages,
+     que hospeda arquivos estaticos mas nao oferece listagem da pasta assets/videos/. */
+  detect: 'try',
 
   clips: [
     // Exemplo completo (copie o formato se quiser anotacoes e camera lenta):
